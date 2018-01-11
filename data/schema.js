@@ -11,7 +11,7 @@ type Query {
   site(id: Int, site_name: String, site_postalcode: String): Sites
   allSites: [Sites]
   someSites(site_name: String, site_postalcode: String): [Sites]
-  sqlSites: [Sites]
+  sqlSites(site_name: String): [Sites]
 }
 
 type Sites {

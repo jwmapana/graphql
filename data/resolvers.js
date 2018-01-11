@@ -20,7 +20,11 @@ const resolvers = {
       });
     },
     sqlSites(_,args ) {
-      return db_mysql.query("SELECT * FROM `sites`", {type: db_mysql.QueryTypes.SELECT})
+      return db_mysql.query("SELECT * FROM `sites` WHERE site_name LIKE :name",
+      {
+        type: db_mysql.QueryTypes.SELECT,
+        replacements: {name: args.site_name}
+      })
       .then(response => {
         console.log('sqlSites response: ', response);
         return response;
