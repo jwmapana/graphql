@@ -48,4 +48,10 @@ const Sites = db_mysql.define('sites',
   }
 );
 
-export { Sites };
+// sequelize.query("SELECT * FROM `sites`", {type: sequelize.QueryTypes.SELECT})
+// .then(response => {
+//   console.log('sqlSites response: ', response);
+//   return response;
+// });
+
+export { Sites, db_mysql };

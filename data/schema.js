@@ -10,7 +10,8 @@ const typeDefs = `
 type Query {
   site(id: Int, site_name: String, site_postalcode: String): Sites
   allSites: [Sites]
-  someSites(id: Int): [Sites]
+  someSites(site_name: String, site_postalcode: String): [Sites]
+  sqlSites: [Sites]
 }
 
 type Sites {
