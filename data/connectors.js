@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-const db_mysql = new Sequelize('test', 'root', null, {
+const db_mysql = new Sequelize('test', 'root', 'root', {
   host: 'localhost',
   dialect: 'mysql'
 });
@@ -47,11 +47,5 @@ const Sites = db_mysql.define('sites',
     timestamps: false
   }
 );
-
-// sequelize.query("SELECT * FROM `sites`", {type: sequelize.QueryTypes.SELECT})
-// .then(response => {
-//   console.log('sqlSites response: ', response);
-//   return response;
-// });
 
 export { Sites, db_mysql };

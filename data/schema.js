@@ -1,10 +1,10 @@
-import {
-  makeExecutableSchema,
-  // addMockFunctionsToSchema
-} from 'graphql-tools';
-// import mocks from './mock';
-import _ from 'lodash';
+import { makeExecutableSchema } from 'graphql-tools';
 import resolvers from './resolvers';
+const express = require('express');
+const graphqlHTTP = require('express-graphql');
+const {GraphAQLSchema, GraphQLObjectType, GraphQLString } = require('graphql');
+
+const app = express();
 
 const typeDefs = `
 type Query {
@@ -27,6 +27,28 @@ type Sites {
 
 const schema = makeExecutableSchema({ typeDefs, resolvers });
 
-// addMockFunctionsToSchema({ schema, mocks });
+app.use(function(req,res,next){
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
 
-export default schema;
+  // console.log('req', req);
+
+  if ('OPTIONS' === req.method) {
+    console.log('entered OPTIONS branch');
+    res.sendStatus(200);
+  }
+  else {
+    next();
+  }
+});
+
+app.post('/graphql', graphqlHTTP({
+  schema,
+  graphiql: true,
+  flippy: console.log('app.post was here');
+}));
+
+// export default schema;
+
+app.listen(4000);
