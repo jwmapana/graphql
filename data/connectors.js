@@ -1,3 +1,11 @@
+////////////////////////////////////////
+// connectors.js
+////
+// Author: Jim McNeely
+////
+// created 2018-02-02 2:17 PM  
+////////////////////////////////////////
+
 const Sequelize = require('sequelize');
 
 const db_mysql = new Sequelize('test', 'root', 'root', {

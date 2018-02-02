@@ -1,3 +1,11 @@
+////////////////////////////////////////
+// schema.js
+////
+// Author: Jim McNeely
+////
+// created 2018-02-02 2:17 PM  
+////////////////////////////////////////
+
 import { makeExecutableSchema } from 'graphql-tools';
 import resolvers from './resolvers';
 // const express = require('express');

@@ -1,3 +1,11 @@
+////////////////////////////////////////
+// resolvers.js
+////
+// Author: Jim McNeely
+////
+// created 2018-02-02 2:17 PM  
+////////////////////////////////////////
+
 import { Sites, db_mysql } from './connectors';
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
