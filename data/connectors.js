@@ -1,7 +1,9 @@
+import { mysql } from './environment';
+
 const Sequelize = require('sequelize');
 
-const db_mysql = new Sequelize('test', 'root', 'root', {
-  host: 'localhost',
+const db_mysql = new Sequelize('db_conf', mysql.user, mysql.password, {
+  host: mysql.host,
   dialect: 'mysql'
 });
 
@@ -17,7 +19,7 @@ db_mysql
 
 const Sites = db_mysql.define('sites',
   {
-    id: {
+    site_id: {
       type: Sequelize.INTEGER,
       primaryKey: true
     },

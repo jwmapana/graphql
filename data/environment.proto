@@ -1,0 +1,7 @@
+const mysql = {
+    host: 'mydevclus1.apana.us',
+    user: 'hc1',
+    password: 'bei^nai,h{a9aix3taip@ua9'
+};
+
+export {mysql};
