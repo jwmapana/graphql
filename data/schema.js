@@ -16,14 +16,14 @@ import resolvers from './resolvers';
 
 const typeDefs = `
 type Query {
-  site(id: Int, site_name: String, site_postalcode: String): Sites
+  site(site_id: Int, site_name: String, site_postalcode: String): Sites
   allSites: [Sites]
   someSites(site_name: String, site_postalcode: String): [Sites]
   sqlSites(site_name: String): [Sites]
 }
 
 type Sites {
-  id: Int
+  site_id: Int
   site_name: String
   site_address: String
   site_city: String
