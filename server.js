@@ -3,16 +3,17 @@ import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
 import bodyParser from 'body-parser';
 import schema from './data/schema';
 
-const GRAPHQL_PORT = 3000;
+const GRAPHQL_PORT = 3001;
 
 const graphQLServer = express();
 
 graphQLServer.use(function(req,res,next){
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+  // res.header('Access-Control-Allow-Origin', '*');
+  // res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS');
+  // res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
 
-  // console.log('req', req);
+  console.log('req.method: ', req.method);
+
 
   if ('OPTIONS' === req.method) {
     console.log('entered OPTIONS branch');

@@ -6,7 +6,7 @@
 // created 2018-02-02 2:17 PM  
 ////////////////////////////////////////
 
-import { Sites, db_mysql } from './connectors';
+import { Site, db_mysql } from './connectors';
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
@@ -15,26 +15,26 @@ const _ = require('lodash');
 const resolvers = {
   Query: {
     site(_, args) {
-      return Sites.find({ where: args });
+      return Site.find({ where: args });
     },
     allSites(_,args) {
-      return Sites.findAll();
+      return Site.findAll();
     },
     someSites(_,args) {
-      return Sites.findAll({
+      return Site.findAll({
         where: {
           site_name: {[Op.like]: args.site_name}
         }
       });
     },
     sqlSites(_,args ) {
-      return db_mysql.query("SELECT * FROM `sites` WHERE site_name LIKE :name",
+      return db_mysql.query("SELECT * FROM `site` WHERE site_name LIKE :name", 
       {
         type: db_mysql.QueryTypes.SELECT,
         replacements: {name: args.site_name}
       })
       .then(response => {
-        console.log('sqlSites response: ', response);
+        console.log('sqlSite response: ', response);
         return response;
       });
     }

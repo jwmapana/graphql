@@ -6,7 +6,13 @@
 // created 2018-02-02 2:17 PM  
 ////////////////////////////////////////
 
-import { mysql } from './environment';
+// import { mysql } from './environment.js';  
+
+const mysql = {
+  host: 'mydevclus1.apana.us',
+  user: 'hc1',
+  password: 'bei^nai,h{a9aix3taip@ua9'
+};
 
 const Sequelize = require('sequelize');
 
@@ -25,7 +31,7 @@ db_mysql
     console.error('unable to connect to mysql: ', err);
   });
 
-const Sites = db_mysql.define('sites',
+const Site = db_mysql.define('site',
   {
     site_id: {
       type: Sequelize.INTEGER,
@@ -46,16 +52,11 @@ const Sites = db_mysql.define('sites',
     site_postalcode: {
       type: Sequelize.STRING
     },
-    full_org_name: {
-      type: Sequelize.STRING
-    },
-    customer_id: {
-      type: Sequelize.INTEGER
-    },
   },
   {
-    timestamps: false
+    timestamps: false,
+    freezeTableName: true
   }
 );
 
-export { Sites, db_mysql };
+export { Site, db_mysql };
