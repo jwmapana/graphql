@@ -28,16 +28,26 @@ const resolvers = {
       });
     },
     sqlSites(_,args ) {
+      console.log('obj - _', _);
       return db_mysql.query("SELECT * FROM `site` WHERE site_name LIKE :name", 
       {
         type: db_mysql.QueryTypes.SELECT,
         replacements: {name: args.site_name}
       })
       .then(response => {
-        console.log('sqlSite response: ', response);
         return response;
       });
-    }
+    },
+    sqlNodes(_,args ) {
+      return db_mysql.query("SELECT * FROM `node` WHERE node_name LIKE :name", 
+      {
+        type: db_mysql.QueryTypes.SELECT,
+        replacements: {name: args.node_name}
+      })
+      .then(response => {
+        return response;
+      });
+    },
   }
 };
 

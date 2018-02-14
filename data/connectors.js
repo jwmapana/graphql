@@ -6,13 +6,13 @@
 // created 2018-02-02 2:17 PM  
 ////////////////////////////////////////
 
-// import { mysql } from './environment.js';  
+import { mysql } from './environment';
 
-const mysql = {
-  host: 'mydevclus1.apana.us',
-  user: 'hc1',
-  password: 'bei^nai,h{a9aix3taip@ua9'
-};
+// const mysql = {
+//   host: 'mydevclus1.apana.us',
+//   user: 'hc1',
+//   password: 'bei^nai,h{a9aix3taip@ua9'
+// }; 
 
 const Sequelize = require('sequelize');
 

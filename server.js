@@ -8,15 +8,16 @@ const GRAPHQL_PORT = 3001;
 const graphQLServer = express();
 
 graphQLServer.use(function(req,res,next){
+  // don't use these CORS functions if this is being served proxy via nginx
   // res.header('Access-Control-Allow-Origin', '*');
   // res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS');
   // res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
 
-  console.log('req.method: ', req.method);
+  // console.log('req.method: ', req.method);
 
 
   if ('OPTIONS' === req.method) {
-    console.log('entered OPTIONS branch');
+    // console.log('entered OPTIONS branch');
     res.sendStatus(200);
   }
   else {
